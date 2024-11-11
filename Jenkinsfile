@@ -1,10 +1,14 @@
 pipeline {
     agent any
+    enviroment {
+        AWS_ACCESS_KEY_ID = credentials ('AWS__ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials ('AWS_SECRET_ACCESS_KEY')
+    }
 
     stages {
-        stage ( 'this is fist stage' ) {
+        stage ( 'list out enviroment' ) {
             steps {
-               echo 'this is my first stage'
+               sh 'env'
 
          }
         }
